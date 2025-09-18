@@ -103,7 +103,10 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(color: Colors.red,width: 2)
                       ),
-                      child: Image.asset("assets/exit.gif",height: size.height * 0.045,),
+                      child: Image.asset(
+                         "packages/flutter_smart_exit/assets/exit.gif",
+                              package: "flutter_smart_exit",
+                        height: size.height * 0.045,),
                     ),
                   SizedBox(height: size.height * 0.010),
                   Text(
@@ -245,9 +248,14 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           borderRadius: BorderRadius.circular(35),
                           border: Border.all(color: Colors.red,width: 2)
                       ),
-                      child: Image.asset("assets/exit.gif",height: size.width > 600 ? size.height * 0.080 : size.height * 0.045,),
+                      child: Image.asset(
+                              "packages/flutter_smart_exit/assets/exit.gif",
+                              package: "flutter_smart_exit",
+                              height: size.width > 500 ? size.height * 0.080 : size.height * 0.045,
+                          ),
+
                   ),
-                  SizedBox(height: size.width > 600 ? 10 : 20),
+                  SizedBox(height: size.width > 500 ? 10 : 20),
                   Text(
                     widget.exitMessage ?? "Are you ready to exit ?",
                     style: widget.exitMessageStyle ??  TextStyle(
@@ -263,7 +271,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         style: widget.cancelButtonStyle ?? ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           side: BorderSide(color: Colors.grey.shade400, width: size.height * 0.001),
-                          minimumSize: size.width < 600 ?   Size(size.width * 0.4, size.height * 0.04) : Size(size.width * 0.25, size.height * 0.050),
+                          minimumSize: size.width < 500 ?   Size(size.width * 0.4, size.height * 0.04) : Size(size.width * 0.25, size.height * 0.050),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16.0),
                           ),
@@ -284,7 +292,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         style:widget.exitButtonStyle ??  ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                           side: BorderSide.none,
-                          minimumSize: size.width < 600 ?   Size(size.width * 0.4, size.height * 0.04) : Size(size.width * 0.25, size.height * 0.050),
+                          minimumSize: size.width < 500 ?   Size(size.width * 0.4, size.height * 0.04) : Size(size.width * 0.25, size.height * 0.050),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16.0),
                           ),
