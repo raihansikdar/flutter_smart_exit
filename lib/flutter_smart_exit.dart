@@ -104,7 +104,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           border: Border.all(color: Colors.red,width: 2)
                       ),
                       child: Image.asset(
-                         "flutter_smart_exit/gif/exit.gif",
+                         "gif/exit.gif",
                               package: "flutter_smart_exit",
                         height: size.height * 0.045,),
                     ),
@@ -249,7 +249,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           border: Border.all(color: Colors.red,width: 2)
                       ),
                       child: Image.asset(
-                              "flutter_smart_exit/gif/exit.gif",
+                              "gif/exit.gif",
                               package: "flutter_smart_exit",
                               height: size.width > 500 ? size.height * 0.080 : size.height * 0.045,
                           ),
