@@ -104,7 +104,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           border: Border.all(color: Colors.red,width: 2)
                       ),
                       child: Image.asset(
-                         "packages/flutter_smart_exit/assets/exit.gif",
+                         "packages/flutter_smart_exit/gif/exit.gif",
                               package: "flutter_smart_exit",
                         height: size.height * 0.045,),
                     ),
@@ -232,7 +232,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
         ),
         builder: (BuildContext context) {
           return Container(
-            height: widget.bottomSheetHeight ?? (size.width > 600 ? 215 : 175),
+            height: widget.bottomSheetHeight ?? (size.width > 500 ? 215 : 175),
             transform: Matrix4.translationValues(0, -size.height * 0.040, 0),
 
             child: Padding(
@@ -249,7 +249,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           border: Border.all(color: Colors.red,width: 2)
                       ),
                       child: Image.asset(
-                              "packages/flutter_smart_exit/assets/exit.gif",
+                              "packages/flutter_smart_exit/gif/exit.gif",
                               package: "flutter_smart_exit",
                               height: size.width > 500 ? size.height * 0.080 : size.height * 0.045,
                           ),
@@ -260,7 +260,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                     widget.exitMessage ?? "Are you ready to exit ?",
                     style: widget.exitMessageStyle ??  TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: size.width < 600 ? 18 : 24,
+                      fontSize: size.width < 500 ? 18 : 24,
                     ),
                   ),
                   const SizedBox(height: 15),
