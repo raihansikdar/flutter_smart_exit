@@ -28,6 +28,7 @@ Add the package to your `pubspec.yaml`:
 ```yaml
 dependencies:
   flutter_smart_exit: ^1.0.0
+```
 
 
 ## 🧩 Getting Started
@@ -126,5 +127,4 @@ Feel free to open issues or submit pull requests to improve this package.
 
 📄 License
 
-This project is licensed under the MIT License – see the LICENSE
- file for details.
+This project is licensed under the [MIT License](https://github.com/raihansikdar/flutter_smart_exit/blob/main/LICENSE).
