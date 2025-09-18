@@ -35,7 +35,7 @@ dependencies:
 Simply import the package in your Dart file:
 
 ```
-import 'package:flutter_debug_logger/flutter_debug_logger.dart';
+import 'package:flutter_smart_exit/flutter_smart_exit.dart';
 
 ```
 
