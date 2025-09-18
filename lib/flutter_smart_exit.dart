@@ -88,6 +88,13 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
   Timer? backPressTimer;
 
   @override
+  void dispose() {
+    backPressTimer?.cancel(); // Cancel any pending timer
+    super.dispose();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     return PopScope(
