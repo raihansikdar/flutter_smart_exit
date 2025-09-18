@@ -1,39 +1,130 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Flutter Smart Exit ✨
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A Flutter package to handle **smart app exit** with double back press, SnackBar, Popup Dialog, or Bottom Sheet.  
+Fully customizable and works with **Material** and **Cupertino** apps.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- 💡 Exit app with double back press.
+- 🛎 Show SnackBar, Popup Dialog, or Bottom Sheet before exiting.
+- 🎨 Fully customizable:
+  - Exit message & text style
+  - Button text & style
+  - Background color
+  - Bottom sheet height
+- 📱 Responsive design for different screen sizes.
+- ⚡ Works with Material and Cupertino apps.
+- ✅ Easy to integrate in any Flutter project.
 
-## Getting started
+---
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
-## Usage
+## 📦 Installation
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Add the package to your `pubspec.yaml`:
 
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  flutter_smart_exit: ^1.0.0
+
+
+## 🧩 Getting Started
+Simply import the package in your Dart file:
+
+```
+import 'package:flutter_debug_logger/flutter_debug_logger.dart';
+
 ```
 
-## Additional information
+## 🛠 Usage
+Wrap your root widget with FlutterSmartExit:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```
+import 'package:flutter/material.dart';
+import 'package:flutter_smart_exit/flutter_smart_exit.dart';
+
+void main() {
+  runApp(
+    FlutterSmartExit(
+      exitOption: ExitOption.backPressExit,
+      exitMessage: "Press back again to exit",
+      child: const MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Smart Exit Demo',
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Smart Exit Demo")),
+        body: const Center(child: Text("Press back to test exit")),
+      ),
+    );
+  }
+}
+
+```
+
+## 🔹 Exit Options
+
+| Option            | Behavior                                                                     |
+| ----------------- | ---------------------------------------------------------------------------- |
+| `backPressExit`   | Exit app after **pressing back twice** within 2 seconds. Shows **SnackBar**. |
+| `popUpExit`       | Shows an **AlertDialog** to confirm exit.                                    |
+| `bottomSheetExit` | Shows a **BottomSheet** to confirm exit.                                     |
+
+
+## 🎨 Customization
+
+| Property                                | Description                                            |
+| --------------------------------------- | ------------------------------------------------------ |
+| `exitMessage`                           | Message to show when confirming exit.                  |
+| `exitMessageStyle`                      | Custom TextStyle for exit message.                     |
+| `cancelButtonText`                      | Text for the cancel button.                            |
+| `exitButtonText`                        | Text for the exit button.                              |
+| `cancelButtonStyle` / `exitButtonStyle` | Custom style for buttons.                              |
+| `backgroundColor`                       | Background color of dialog, bottom sheet, or SnackBar. |
+| `bottomSheetHeight`                     | Height of bottom sheet (optional).                     |
+
+
+
+## 💡 Example
+
+```
+FlutterSmartExit(
+  exitOption: ExitOption.popUpExit,
+  exitMessage: "Do you really want to leave?",
+  exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  cancelButtonText: "No",
+  exitButtonText: "Yes",
+  backgroundColor: Colors.white,
+  child: MyHomePage(),
+)
+
+```
+
+⚠️ Notes
+
+- Make sure FlutterSmartExit wraps the root widget.
+
+- Works with MaterialApp or CupertinoApp.
+
+- SnackBar duration for double back press is 2 seconds (fixed).
+
+
+🤝 Contributing
+
+Contributions are welcome!
+Feel free to open issues or submit pull requests to improve this package.
+
+📄 License
+
+This project is licensed under the MIT License – see the LICENSE
+ file for details.
