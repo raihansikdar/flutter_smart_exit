@@ -125,118 +125,6 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
     );
   }
 
-  /// Displays a popup alert dialog asking the user to confirm exit.
-  void exitPopUp(Size size) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: widget.backgroundColor ?? Colors.white,
-          contentPadding: EdgeInsets.zero,
-          titlePadding: EdgeInsets.zero,
-          title: Align(
-            alignment: Alignment.center,
-            child: Container(
-              transform: Matrix4.translationValues(0, -size.height * 0.028, 0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      border: Border.all(color: Colors.red, width: 2),
-                    ),
-                    child: Image.asset(
-                      "gif/exit.gif",
-                      package: "flutter_smart_exit",
-                      height: size.height * 0.045,
-                    ),
-                  ),
-                  SizedBox(height: size.height * 0.010),
-                  Text(
-                    widget.exitMessage ?? "Are you ready to exit ?",
-                    style: widget.exitMessageStyle ??
-                        TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: Colors.grey.shade500,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  style: widget.cancelButtonStyle ??
-                      ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        side: BorderSide(
-                          color: Colors.grey.shade400,
-                          width: size.height * 0.001,
-                        ),
-                        minimumSize: size.width < 600
-                            ? Size(size.width * 0.26, size.height * 0.04)
-                            : Size(size.width * 0.025, size.height * 0.050),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                      ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(
-                    widget.cancelButtonText ?? "Cancel",
-                    style: widget.cancelButtonTextStyle ??
-                        TextStyle(
-                          color: Colors.black,
-                          fontSize: size.height * 0.016,
-                        ),
-                  ),
-                ),
-                SizedBox(width: size.width * 0.016),
-                ElevatedButton(
-                  style: widget.exitButtonStyle ??
-                      ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        side: BorderSide.none,
-                        minimumSize: size.width < 600
-                            ? Size(size.width * 0.26, size.height * 0.04)
-                            : Size(size.width * 0.025, size.height * 0.050),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                      ),
-                  onPressed: () async {
-                    SystemNavigator.pop();
-                  },
-                  child: Text(
-                    widget.exitButtonText ?? "Exit",
-                    style: widget.exitButtonTextStyle ??
-                        TextStyle(
-                          color: Colors.white,
-                          fontSize: size.height * 0.016,
-                          fontWeight: FontWeight.w700,
-                        ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   /// Displays a snackbar message prompting the user to press back again to exit.
   void exitSnackBar() {
     final textLength = widget.exitMessage?.length ?? 25;
@@ -244,7 +132,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
     const maxMargin = 110.0;
 
     double dynamicMargin =
-        (textLength > 30) ? minMargin : maxMargin; // Adjust margin
+    (textLength > 30) ? minMargin : maxMargin; // Adjust margin
 
     final snackBar = SnackBar(
       content: Center(
@@ -279,6 +167,125 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+
+  /// Displays a popup alert dialog asking the user to confirm exit.
+  void exitPopUp(Size size) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: widget.backgroundColor ?? Colors.white,
+          contentPadding: EdgeInsets.zero,
+          titlePadding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          title: Align(
+            alignment: Alignment.center,
+            child: Container(
+              transform: Matrix4.translationValues(0, -size.height * 0.028, 0),
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25),
+                      border: Border.all(color: Colors.red, width: 2),
+                    ),
+                    child: Image.asset(
+                      "gif/exit.gif",
+                      package: "flutter_smart_exit",
+                      height: size.height * 0.045,
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.010),
+                  Text(
+                    widget.exitMessage ?? "Are you ready to exit ?",
+                    style: widget.exitMessageStyle ??
+                        TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.grey.shade500,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: widget.cancelButtonStyle ??
+                        ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          side: BorderSide(
+                            color: Colors.grey.shade400,
+                            width: size.height * 0.001,
+                          ),
+                          // minimumSize: size.width < 500
+                          //     ? Size(size.width * 0.26, size.height * 0.04)
+                          //     : Size(size.width * 0.025, size.height * 0.050),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      widget.cancelButtonText ?? "Cancel",
+                      style: widget.cancelButtonTextStyle ??
+                          TextStyle(
+                            color: Colors.black,
+                            fontSize: size.height * 0.016,
+                          ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: size.width * 0.025),
+                Expanded(
+                  child: ElevatedButton(
+                    style: widget.exitButtonStyle ??
+                        ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          side: BorderSide.none,
+                          // minimumSize: size.width < 500
+                          //     ? Size(size.width * 0.26, size.height * 0.04)
+                          //     : Size(size.width * 0.025, size.height * 0.050),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
+                    onPressed: () async {
+                      SystemNavigator.pop();
+                    },
+                    child: Text(
+                      widget.exitButtonText ?? "Exit",
+                      style: widget.exitButtonTextStyle ??
+                          TextStyle(
+                            color: Colors.white,
+                            fontSize: size.height * 0.016,
+                            fontWeight: FontWeight.w700,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
   }
 
   /// Displays a bottom sheet asking the user to confirm exit.
