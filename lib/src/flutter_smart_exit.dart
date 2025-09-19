@@ -350,7 +350,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         },
                         child: Text(
                           widget.cancelButtonText ?? "Cancel",
-                          style: TextStyle(
+                          style: widget.cancelButtonTextStyle ?? TextStyle(
                             color: Colors.black,
                             fontSize: size.height * 0.016,
                           ),
@@ -374,7 +374,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         },
                         child: Text(
                           widget.exitButtonText ?? "Exit",
-                          style: TextStyle(
+                          style: widget.exitButtonTextStyle ?? TextStyle(
                             color: Colors.white,
                             fontSize: size.height * 0.016,
                             fontWeight: FontWeight.bold,
