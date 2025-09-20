@@ -301,7 +301,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
         builder: (BuildContext context) {
           return Container(
             height: widget.bottomSheetHeight ??
-                (size.width > 500 ? 215 : 175),
+                (size.width > 500 ? 205 : 185),
             transform: Matrix4.translationValues(0, -size.height * 0.040, 0),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -334,61 +334,64 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         ),
                   ),
                   const SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        style: widget.cancelButtonStyle ??
-                            ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              side: BorderSide(
-                                color: Colors.grey.shade400,
-                                width: size.height * 0.001,
-                              ),
-                              minimumSize: size.width < 500
-                                  ? Size(size.width * 0.4, size.height * 0.04)
-                                  : Size(size.width * 0.25, size.height * 0.050),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                            ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(
-                          widget.cancelButtonText ?? "Cancel",
-                          style: widget.cancelButtonTextStyle ?? TextStyle(
-                            color: Colors.black,
-                            fontSize: size.height * 0.016,
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: size.width * 0.016),
-                      ElevatedButton(
-                        style: widget.exitButtonStyle ??
-                            ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                              side: BorderSide.none,
-                              minimumSize: size.width < 500
-                                  ? Size(size.width * 0.4, size.height * 0.04)
-                                  : Size(size.width * 0.25, size.height * 0.050),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            style: widget.cancelButtonStyle ??
+                                ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  side: BorderSide(
+                                    color: Colors.grey.shade400,
+                                    width: size.height * 0.001,
+                                  ),
+                                  // minimumSize: size.width < 500 ?   Size(size.width * 0.4, size.height * 0.04) : Size(size.width * 0.25, size.height * 0.050),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              widget.cancelButtonText ?? "Cancel",
+                              style: widget.cancelButtonTextStyle ?? TextStyle(
+                                color: Colors.black,
+                                fontSize: size.height * 0.016,
                               ),
                             ),
-                        onPressed: () async {
-                          SystemNavigator.pop();
-                        },
-                        child: Text(
-                          widget.exitButtonText ?? "Exit",
-                          style: widget.exitButtonTextStyle ?? TextStyle(
-                            color: Colors.white,
-                            fontSize: size.height * 0.016,
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      )
-                    ],
+                        SizedBox(width: size.width * 0.016),
+                        Expanded(
+                          child: ElevatedButton(
+                            style: widget.exitButtonStyle ??
+                                ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.red,
+                                  side: BorderSide.none,
+                                  //minimumSize: size.width < 500 ?   Size(size.width * 0.4, size.height * 0.04) : Size(size.width * 0.25, size.height * 0.050),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                ),
+                            onPressed: () async {
+                              SystemNavigator.pop();
+                            },
+                            child: Text(
+                              widget.exitButtonText ?? "Exit",
+                              style: widget.exitButtonTextStyle ?? TextStyle(
+                                color: Colors.white,
+                                fontSize: size.height * 0.016,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
