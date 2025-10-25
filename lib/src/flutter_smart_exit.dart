@@ -157,8 +157,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(color: Colors.red,width: 2)
                       ),
-                    //  child: Image.asset("gif/exit.gif",height: size.height * 0.045,)
-                    child: Image.network("https://github.com/raihansikdar/flutter_smart_exit/blob/main/gif/exit.gif"),
+                      child: Image.asset("gif/exit.gif",height: size.height * 0.045,)
                       
                   ),
                   SizedBox(height: size.height * 0.010),
