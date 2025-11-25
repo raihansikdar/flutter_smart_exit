@@ -243,7 +243,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
       ),
       builder: (BuildContext context) {
         return Container(
-          height: size.width > 550 ?  205 : 185,
+          height: bottomSheetHeight ?? size.width > 550 ?  205 : 185,
           transform: Matrix4.translationValues(0, -size.height * 0.040, 0),
 
           child: Padding(
