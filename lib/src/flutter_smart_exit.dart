@@ -259,7 +259,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         borderRadius: BorderRadius.circular(35),
                         border: Border.all(color: Colors.red,width: 2)
                     ),
-                    child: Image.asset("packages/flutter_smart_exit/gif/exit.gif",height: size.width > 550 ? size.height * 0.080 : size.height * 0.045,)),
+                    child: Image.asset("gif/exit.gif", package: "flutter_smart_exit",height: size.width > 550 ? size.height * 0.080 : size.height * 0.045,)),
                 SizedBox(height: size.width > 550 ? 10 : 20),
                 Text(
                   widget.exitMessage ?? "Are you ready to exit ?",
