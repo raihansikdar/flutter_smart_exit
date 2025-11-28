@@ -578,9 +578,8 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                       borderRadius: BorderRadius.circular(35),
                       border: Border.all(color: Colors.red, width: 2),
                     ),
-                    child: Image.asset(
-                      'gif/exit.gif',
-                      package: 'flutter_smart_exit',
+                    child: Image.network(
+                      'https://github.com/raihansikdar/flutter_smart_exit/blob/main/gif/exit.gif',
                       height: size.width > 500 ? size.height * 0.080 : size.height * 0.045,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(Icons.error, color: Colors.red);
