@@ -147,7 +147,11 @@ FlutterSmartExit(
 
 
 ## ✅ Gif Download link:
-https://raw.githubusercontent.com/raihansikdar/flutter_smart_exit/main/gif/exit.gif
+### Preview
+![exit gif](https://raw.githubusercontent.com/raihansikdar/flutter_smart_exit/main/gif/exit.gif)
+
+### Download
+[➡️ Click here to download exit.gif](https://raw.githubusercontent.com/raihansikdar/flutter_smart_exit/main/gif/exit.gif)
 
 ## ⚠️ Notes
 
