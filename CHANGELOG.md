@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ---
 
-## [1.0.0] - 2025-09-18
+## [1.0.0] - 2025-11-29
 
 ### Added
 - Initial release of the `flutter_smart_exit` package.
