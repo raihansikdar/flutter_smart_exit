@@ -124,6 +124,13 @@ FlutterSmartExit(
 
 - SnackBar duration for double back press is 2 seconds (fixed).
 
+##  👨‍💻 Author
+**Raihan Sikdar**
+
+Website: [raihansikdar.com](https://raihansikdar.com)  
+Email: raihansikdar10@gmail.com  
+GitHub: [raihansikdar](https://github.com/raihansikdar)  
+LinkedIn: [raihansikdar](https://www.linkedin.com/in/raihansikdar/)
 
 🤝 Contributing
 
