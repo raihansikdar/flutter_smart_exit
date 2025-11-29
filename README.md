@@ -128,6 +128,16 @@ FlutterSmartExit(
 
 ```
 
+### Back Press Exit
+
+
+```
+FlutterSmartExit(
+  exitType: exitType.backPressExit,
+  exitMessage: "Do you really want to leave?",
+)
+
+```
 
 ## Screenshot
 
