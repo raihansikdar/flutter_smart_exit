@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
 
 ```
 
-Wrap your Specific widget with FlutterSmartExit:
+💡 Wrap your Specific widget with FlutterSmartExit:
 ```
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
