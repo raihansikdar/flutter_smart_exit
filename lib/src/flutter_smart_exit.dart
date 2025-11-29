@@ -18,7 +18,9 @@ class FlutterSmartExit extends StatefulWidget {
   final ButtonStyle? exitButtonStyle;
   final Color? backgroundColor;
   final double? bottomSheetHeight;
+  final double? backPressExitBottomExit;
   final Widget child;
+  final Widget? exitImage;
 
   @override
   State<FlutterSmartExit> createState() => _FlutterSmartExitState();
@@ -26,6 +28,7 @@ class FlutterSmartExit extends StatefulWidget {
   const FlutterSmartExit({
     super.key,
     required this.exitOption,
+     this.exitImage,
     this.exitMessage,
     this.exitMessageStyle,
     this.cancelButtonText,
@@ -36,6 +39,7 @@ class FlutterSmartExit extends StatefulWidget {
     this.exitButtonStyle,
     this.backgroundColor,
     this.bottomSheetHeight,
+    this.backPressExitBottomExit,
     required this.child,
 
   });
@@ -80,19 +84,16 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
             }
           }
         },
-
-
         child: widget.child
     );
   }
 
   void exitSnackBar() {
     final textLength = widget.exitMessage?.length ?? 25;
-    const minMargin = 45.0;
+    const minMargin = 30.0;
     const maxMargin = 110.0;
 
-    // Calculate the margin based on text length
-    double dynamicMargin = (textLength > 30) // You can adjust this threshold
+    double dynamicMargin = (textLength > 30)
         ? minMargin
         : maxMargin;
 
@@ -101,7 +102,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
-            widget.exitMessage ?? 'Press back again to exit',
+            widget.exitMessage ?? 'Tap again to exit',
             textAlign: TextAlign.center,
             style: widget.exitMessageStyle ??  const TextStyle(
               color: Colors.black,
@@ -115,7 +116,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
       margin: EdgeInsets.only(
         left: dynamicMargin,
         right: dynamicMargin,
-        bottom: 30.0,
+        bottom: widget.backPressExitBottomExit ?? 25.0,
       ),
       padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 8.0),
       backgroundColor: widget.backgroundColor ??  Colors.white,
@@ -157,7 +158,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(color: Colors.red,width: 2)
                       ),
-                      child: Image.asset("gif/exit.gif",height: size.height * 0.045,)),
+                      child: widget.exitImage ?? Icon(Icons.error_outline)),
                   SizedBox(height: size.height * 0.010),
                   Text(
                     widget.exitMessage ?? "Are you ready to exit ?",
@@ -176,49 +177,53 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  style: widget.cancelButtonStyle ?? ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    side: BorderSide(color: Colors.grey.shade400, width: size.height * 0.001),
-                    minimumSize: size.width < 550 ?   Size(size.width * 0.26, size.height * 0.04) : Size(size.width * 0.025, size.height * 0.050),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
+                Expanded(
+                  child: ElevatedButton(
+                    style: widget.cancelButtonStyle ?? ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: BorderSide(color: Colors.grey.shade400, width: size.height * 0.001),
+                      minimumSize: size.width < 550 ?   Size(size.width * 0.26, size.height * 0.04) : Size(size.width * 0.025, size.height * 0.050),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(
-                    widget.cancelButtonText ?? "Cancel",
-                    style: widget.cancelButtonTextStyle ?? TextStyle(
-                      color: Colors.black,
-                      fontSize: size.height * 0.016,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      widget.cancelButtonText ?? "Cancel",
+                      style: widget.cancelButtonTextStyle ?? TextStyle(
+                        color: Colors.black,
+                        fontSize: size.height * 0.016,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: size.width *0.025,),
-                ElevatedButton(
-                  style:widget.exitButtonStyle ??
-                      ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        side: BorderSide.none,
-                        minimumSize: size.width < 550 ?   Size(size.width * 0.26, size.height * 0.04) : Size(size.width * 0.025, size.height * 0.050),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
+                Expanded(
+                  child: ElevatedButton(
+                    style:widget.exitButtonStyle ??
+                        ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          side: BorderSide.none,
+                          minimumSize: size.width < 550 ?   Size(size.width * 0.26, size.height * 0.04) : Size(size.width * 0.025, size.height * 0.050),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
 
-                      ),
-                  onPressed: () async{
-                    SystemNavigator.pop();
-                  },
-                  child:  Text(
-                    widget.exitButtonText ?? "Exit",
-                    style:widget.exitButtonTextStyle ??
-                        TextStyle(
-                            color: Colors.white,
-                            fontSize: size.height * 0.016,
-                            fontWeight: FontWeight.w700
                         ),
+                    onPressed: () async{
+                      SystemNavigator.pop();
+                    },
+                    child:  Text(
+                      widget.exitButtonText ?? "Exit",
+                      style:widget.exitButtonTextStyle ??
+                          TextStyle(
+                              color: Colors.white,
+                              fontSize: size.height * 0.016,
+                              fontWeight: FontWeight.w700
+                          ),
+                    ),
                   ),
                 )
 
@@ -237,12 +242,11 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
       backgroundColor: widget.backgroundColor ?? Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-        //side: BorderSide(color: Colors.red,width: 3)
       ),
       builder: (BuildContext context) {
         return Container(
-          height: size.width > 550 ?  205 : 185,
-          transform: Matrix4.translationValues(0, -size.height * 0.040, 0),
+          height: widget.bottomSheetHeight ??  ((size.width > 550) ?  205 : 175),
+          transform: Matrix4.translationValues(0, -size.height * 0.038, 0),
 
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -257,13 +261,16 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                         borderRadius: BorderRadius.circular(35),
                         border: Border.all(color: Colors.red,width: 2)
                     ),
-                    child: Image.asset("gif/exit.gif",height: size.width > 550 ? size.height * 0.080 : size.height * 0.045,)),
-                SizedBox(height: size.width > 550 ? 10 : 20),
-                Text(
-                  widget.exitMessage ?? "Are you ready to exit ?",
-                  style: widget.exitMessageStyle ??  TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: size.width < 550 ? 18 : 24,
+                    child: widget.exitImage ?? Icon(Icons.error_outline)),
+                SizedBox(height: size.width > 550 ? 10 : 15),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    widget.exitMessage ?? "Are you ready to exit ?",
+                    style: widget.exitMessageStyle ??  TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: size.width < 550 ? 18 : 24,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 15),
