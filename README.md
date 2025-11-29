@@ -145,6 +145,10 @@ FlutterSmartExit(
 ![flutter_smart_exit](https://github.com/raihansikdar/flutter_smart_exit/blob/main/assets/pop_up.gif?raw=true)
 ![flutter_smart_exit](https://github.com/raihansikdar/flutter_smart_exit/blob/main/assets/backpress_exit.png?raw=true)
 
+
+## ✅ Gif Download link:
+https://raw.githubusercontent.com/raihansikdar/flutter_smart_exit/main/gif/exit.gif
+
 ## ⚠️ Notes
 
 - Make sure FlutterSmartExit wraps the root widget.
