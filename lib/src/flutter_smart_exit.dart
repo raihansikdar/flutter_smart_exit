@@ -165,7 +165,6 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                     style: widget.exitMessageStyle ?? TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
-                      color: Colors.grey.shade500,
                     ),
                   ),
                 ],
