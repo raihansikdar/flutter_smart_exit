@@ -132,11 +132,11 @@ Email: raihansikdar10@gmail.com
 GitHub: [raihansikdar](https://github.com/raihansikdar)  
 LinkedIn: [raihansikdar](https://www.linkedin.com/in/raihansikdar/)
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome!
 Feel free to open issues or submit pull requests to improve this package.
 
-📄 License
+## 📄 License
 
 This project is licensed under the [MIT License](https://github.com/raihansikdar/flutter_smart_exit/blob/main/LICENSE).
