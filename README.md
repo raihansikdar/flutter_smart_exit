@@ -49,7 +49,7 @@ import 'package:flutter_smart_exit/flutter_smart_exit.dart';
 void main() {
   runApp(
     FlutterSmartExit(
-      exitOption: ExitOption.backPressExit,
+      exitType: exitType.backPressExit,
       exitMessage: "Press back again to exit",
       child: const MyApp(),
     ),
@@ -98,9 +98,10 @@ class MyApp extends StatelessWidget {
 
 ## 💡 Example
 
+### Bottom Sheet Exit
 ```
 FlutterSmartExit(
-  exitOption: ExitOption.popUpExit,
+  exitType: exitType.bottomSheetExit,
   exitMessage: "Do you really want to leave?",
   exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
   cancelButtonText: "No",
@@ -110,6 +111,24 @@ FlutterSmartExit(
 )
 
 ```
+
+### Bottom PopUp Exit
+
+
+```
+FlutterSmartExit(
+  exitType: exitType.popUpExit,
+  exitMessage: "Do you really want to leave?",
+  exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  cancelButtonText: "No",
+  exitButtonText: "Yes",
+  backgroundColor: Colors.white,
+  child: MyHomePage(),
+)
+
+```
+
+
 ## Screenshot
 
 ![flutter_smart_exit](https://github.com/raihansikdar/flutter_smart_exit/blob/main/assets/bottom_sheet.gif?raw=true)
