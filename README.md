@@ -144,6 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
 FlutterSmartExit(
   exitType: exitType.bottomSheetExit,
   exitMessage: "Do you really want to leave?",
+  bottomSheetHeight: 250.0,    /// can adjust height with your devices
   exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
   cancelButtonText: "No",
   exitButtonText: "Yes",
