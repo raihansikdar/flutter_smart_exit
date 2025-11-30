@@ -40,40 +40,7 @@ import 'package:flutter_smart_exit/flutter_smart_exit.dart';
 ```
 
 ## 🛠 Usage
-Wrap your root widget with FlutterSmartExit:
-
-```
-import 'package:flutter/material.dart';
-import 'package:flutter_smart_exit/flutter_smart_exit.dart';
-
-void main() {
-  runApp(
-    FlutterSmartExit(
-      exitType: exitType.backPressExit,
-      exitMessage: "Press back again to exit",
-      child: const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Smart Exit Demo',
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Smart Exit Demo")),
-        body: const Center(child: Text("Press back to test exit")),
-      ),
-    );
-  }
-}
-
-```
-
-💡 Wrap your Specific widget with FlutterSmartExit:
+Wrap your Specific widget with FlutterSmartExit:
 ```
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -142,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
 ### Bottom Sheet Exit
 ```
 FlutterSmartExit(
-  exitType: exitType.bottomSheetExit,
+  exitType: ExitType.bottomSheetExit,
   exitMessage: "Do you really want to leave?",
   bottomSheetHeight: 250.0,    /// can adjust height with your devices
   exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -159,7 +126,7 @@ FlutterSmartExit(
 
 ```
 FlutterSmartExit(
-  exitType: exitType.popUpExit,
+  exitType: ExitType.popUpExit,
   exitMessage: "Do you really want to leave?",
   exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
   cancelButtonText: "No",
@@ -175,7 +142,7 @@ FlutterSmartExit(
 
 ```
 FlutterSmartExit(
-  exitType: exitType.backPressExit,
+  exitType: ExitType.backPressExit,
   exitMessage: "Do you really want to leave?",
 )
 
