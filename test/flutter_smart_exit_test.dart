@@ -11,7 +11,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
-            exitOption: ExitOption.backPressExit,
+            exitType: ExitType.backPressExit,
             child: const Scaffold(body: Text('Home Page')),
           ),
         ),
@@ -25,7 +25,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
-            exitOption: ExitOption.backPressExit,
+            exitType: ExitType.backPressExit,
             exitMessage: 'Press back again to exit',
             child: const Scaffold(body: Text('Home Page')),
           ),
@@ -45,7 +45,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
-            exitOption: ExitOption.popUpExit,
+            exitType: ExitType.popUpExit,
             exitMessage: 'Do you really want to exit?',
             child: const Scaffold(body: Text('Home Page')),
           ),
@@ -64,7 +64,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
-            exitOption: ExitOption.bottomSheetExit,
+            exitType: ExitType.bottomSheetExit,
             exitMessage: 'Exit App?',
             child: const Scaffold(body: Text('Home Page')),
           ),
@@ -83,7 +83,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
-            exitOption: ExitOption.popUpExit,
+            exitType: ExitType.popUpExit,
             child: const Scaffold(body: Text('Home Page')),
           ),
         ),

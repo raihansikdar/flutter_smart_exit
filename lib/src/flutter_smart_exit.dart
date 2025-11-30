@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 
-enum ExitOption {bottomSheetExit, popUpExit, backPressExit}
+enum ExitType {bottomSheetExit, popUpExit, backPressExit}
 
 class FlutterSmartExit extends StatefulWidget {
-  final ExitOption exitOption;
+  final ExitType exitType;
   final String? exitMessage;
   final TextStyle? exitMessageStyle;
   final String? cancelButtonText;
@@ -27,7 +27,7 @@ class FlutterSmartExit extends StatefulWidget {
 
   const FlutterSmartExit({
     super.key,
-    required this.exitOption,
+    required this.exitType,
      this.exitImage,
     this.exitMessage,
     this.exitMessageStyle,
@@ -68,9 +68,9 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
           } else {
             backPressCounter++;
 
-            if (widget.exitOption == ExitOption.bottomSheetExit) {
+            if (widget.exitType == ExitType.bottomSheetExit) {
               exitBottomSheet();
-            }else if (widget.exitOption == ExitOption.popUpExit) {
+            }else if (widget.exitType == ExitType.popUpExit) {
               exitPopUp(size);
             }  else if (backPressCounter == 2) {
               canPop = true;
