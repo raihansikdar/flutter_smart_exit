@@ -240,7 +240,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                               ? Size(size.width * 0.26, size.height * 0.04)
                               : Size(size.width * 0.025, size.height * 0.050),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
+                            borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
                           ),
                         ),
                     onPressed: () => Navigator.of(context).pop(),
@@ -266,7 +266,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                               ? Size(size.width * 0.26, size.height * 0.04)
                               : Size(size.width * 0.025, size.height * 0.050),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
+                            borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
                           ),
                         ),
                     onPressed: () async {
@@ -348,7 +348,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                                 ? Size(size.width * 0.4, size.height * 0.04)
                                 : Size(size.width * 0.25, size.height * 0.050),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
                             ),
                           ),
                       onPressed: () => Navigator.of(context).pop(),
@@ -372,7 +372,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                                 ? Size(size.width * 0.4, size.height * 0.04)
                                 : Size(size.width * 0.25, size.height * 0.050),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
                             ),
                           ),
                       onPressed: () async {
