@@ -153,7 +153,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
             widget.exitMessage ?? 'Tap again to exit',
             textAlign: TextAlign.center,
             style:
-                widget.exitMessageStyle ??
+            widget.exitMessageStyle ??
                 const TextStyle(color: Colors.black, fontSize: 14),
           ),
         ),
@@ -212,7 +212,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                   Text(
                     widget.exitMessage ?? "Are you ready to exit ?",
                     style:
-                        widget.exitMessageStyle ??
+                    widget.exitMessageStyle ??
                         const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
@@ -229,7 +229,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                 Expanded(
                   child: ElevatedButton(
                     style:
-                        widget.cancelButtonStyle ??
+                    widget.cancelButtonStyle ??
                         ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           side: BorderSide(
@@ -240,14 +240,14 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                               ? Size(size.width * 0.26, size.height * 0.04)
                               : Size(size.width * 0.025, size.height * 0.050),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
+                            borderRadius: BorderRadius.circular(size.width > 550 ? 40 : 16.0),
                           ),
                         ),
                     onPressed: () => Navigator.of(context).pop(),
                     child: Text(
                       widget.cancelButtonText ?? "Cancel",
                       style:
-                          widget.cancelButtonTextStyle ??
+                      widget.cancelButtonTextStyle ??
                           TextStyle(
                             color: Colors.black,
                             fontSize: size.height * 0.016,
@@ -259,14 +259,14 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                 Expanded(
                   child: ElevatedButton(
                     style:
-                        widget.exitButtonStyle ??
+                    widget.exitButtonStyle ??
                         ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                           minimumSize: size.width < 550
                               ? Size(size.width * 0.26, size.height * 0.04)
                               : Size(size.width * 0.025, size.height * 0.050),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
+                            borderRadius: BorderRadius.circular(size.width > 550 ? 40 : 16.0),
                           ),
                         ),
                     onPressed: () async {
@@ -275,7 +275,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                     child: Text(
                       widget.exitButtonText ?? "Exit",
                       style:
-                          widget.exitButtonTextStyle ??
+                      widget.exitButtonTextStyle ??
                           TextStyle(
                             color: Colors.white,
                             fontSize: size.height * 0.016,
@@ -325,7 +325,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                 Text(
                   widget.exitMessage ?? "Are you ready to exit ?",
                   style:
-                      widget.exitMessageStyle ??
+                  widget.exitMessageStyle ??
                       TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: size.width < 550 ? 18 : 24,
@@ -337,7 +337,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                   children: [
                     ElevatedButton(
                       style:
-                          widget.cancelButtonStyle ??
+                      widget.cancelButtonStyle ??
                           ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             side: BorderSide(
@@ -348,14 +348,14 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                                 ? Size(size.width * 0.4, size.height * 0.04)
                                 : Size(size.width * 0.25, size.height * 0.050),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
+                              borderRadius: BorderRadius.circular(size.width > 550 ? 40 : 16.0),
                             ),
                           ),
                       onPressed: () => Navigator.of(context).pop(),
                       child: Text(
                         widget.cancelButtonText ?? "Cancel",
                         style:
-                            widget.cancelButtonTextStyle ??
+                        widget.cancelButtonTextStyle ??
                             TextStyle(
                               color: Colors.black,
                               fontSize: size.height * 0.016,
@@ -365,14 +365,14 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                     SizedBox(width: size.width * 0.016),
                     ElevatedButton(
                       style:
-                          widget.exitButtonStyle ??
+                      widget.exitButtonStyle ??
                           ElevatedButton.styleFrom(
                             backgroundColor: Colors.red,
                             minimumSize: size.width < 550
                                 ? Size(size.width * 0.4, size.height * 0.04)
                                 : Size(size.width * 0.25, size.height * 0.050),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(size.width < 550 ? 30 : 16.0),
+                              borderRadius: BorderRadius.circular(size.width > 550 ? 40 : 16.0),
                             ),
                           ),
                       onPressed: () async {
@@ -381,7 +381,7 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                       child: Text(
                         widget.exitButtonText ?? "Exit",
                         style:
-                            widget.exitButtonTextStyle ??
+                        widget.exitButtonTextStyle ??
                             TextStyle(
                               color: Colors.white,
                               fontSize: size.height * 0.016,
