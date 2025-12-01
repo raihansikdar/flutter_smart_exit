@@ -6,7 +6,6 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('FlutterSmartExit Tests', () {
-
     testWidgets('renders child widget', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -20,8 +19,9 @@ void main() {
       expect(find.text('Home Page'), findsOneWidget);
     });
 
-    testWidgets('shows snackbar on first back press (backPressExit)',
-        (WidgetTester tester) async {
+    testWidgets('shows snackbar on first back press (backPressExit)', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
@@ -40,8 +40,9 @@ void main() {
       expect(find.text('Press back again to exit'), findsOneWidget);
     });
 
-    testWidgets('shows popup dialog on back press (popUpExit)',
-        (WidgetTester tester) async {
+    testWidgets('shows popup dialog on back press (popUpExit)', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
@@ -59,8 +60,9 @@ void main() {
       expect(find.text('Do you really want to exit?'), findsOneWidget);
     });
 
-    testWidgets('shows bottom sheet on back press (bottomSheetExit)',
-        (WidgetTester tester) async {
+    testWidgets('shows bottom sheet on back press (bottomSheetExit)', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
@@ -78,8 +80,9 @@ void main() {
       expect(find.text('Exit App?'), findsOneWidget);
     });
 
-    testWidgets('cancel button closes popup dialog',
-        (WidgetTester tester) async {
+    testWidgets('cancel button closes popup dialog', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: FlutterSmartExit(
@@ -99,6 +102,5 @@ void main() {
 
       expect(find.byType(AlertDialog), findsNothing);
     });
-
   });
 }
