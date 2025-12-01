@@ -1,6 +1,6 @@
 name: flutter_smart_exit
-description: "A lightweight, fully-customizable Flutter widget that intercepts the Android back button and provides multiple elegant exit options. With a single wrapper widget, you can prevent accidental app exits and give users a polished “double-back to exit” experience—or show a bottom sheet, popup dialog, or snack bar before closing the app."
-version: 1.0.0
+description: "A customizable Flutter widget that smartly handles Android back presses, preventing accidental exits with options like double-back to exit, dialogs, bottom sheets, or snack bars."
+version: 1.1.0
 homepage: https://github.com/raihansikdar/flutter_smart_exit
 
 environment:
