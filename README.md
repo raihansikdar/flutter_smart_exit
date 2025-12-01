@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: FlutterSmartExit(
-        exitType: ExitType.backPressExit,    // Select exit type
+        exitType: ExitType.bottomSheetExit,    // Select exit type
         exitImage: Image.asset("gif/exit.gif"), // Add your gif, image or icon
         child: Center(
           child: Column(
@@ -92,15 +92,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ## 🎨 Customization
 
-| Property                                | Description                                            |
-| --------------------------------------- | ------------------------------------------------------ |
-| `exitMessage`                           | Message to show when confirming exit.                  |
-| `exitMessageStyle`                      | Custom TextStyle for exit message.                     |
-| `cancelButtonText`                      | Text for the cancel button.                            |
-| `exitButtonText`                        | Text for the exit button.                              |
-| `cancelButtonStyle` / `exitButtonStyle` | Custom style for buttons.                              |
-| `backgroundColor`                       | Background color of dialog, bottom sheet, or SnackBar. |
-| `bottomSheetHeight`                     | Height of bottom sheet (optional).                     |
+| **Property**              | **Description**                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| `exitType`                | Defines how the exit confirmation will appear (dialog, bottom sheet, SnackBar). |
+| `exitMessage`             | The message displayed when asking the user to confirm exiting the app.          |
+| `exitMessageStyle`        | Custom `TextStyle` for the exit message.                                        |
+| `cancelButtonText`        | Text displayed on the cancel button.                                            |
+| `cancelButtonTextStyle`   | Custom text style for the cancel button.                                        |
+| `cancelButtonStyle`       | Custom `ButtonStyle` for the cancel button.                                     |
+| `exitButtonText`          | Text displayed on the exit button.                                              |
+| `exitButtonTextStyle`     | Custom text style for the exit button.                                          |
+| `exitButtonStyle`         | Custom `ButtonStyle` for the exit button.                                       |
+| `backgroundColor`         | Background color for dialog, bottom sheet, or SnackBar.                         |
+| `bottomSheetHeight`       | Optional height for the bottom sheet layout.                                    |
+| `backPressExitBottomExit` | Duration (in seconds) before auto-exit on double back press (for SnackBar).     |
+| `child`                   | The main widget wrapped by the exit handler.                                    |
+| `exitImage`               | Optional image widget displayed in the exit UI (dialog or bottom sheet).        |
 
 
 
@@ -111,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
 FlutterSmartExit(
   exitType: ExitType.bottomSheetExit,
   exitMessage: "Do you really want to leave?",
-  bottomSheetHeight: 250.0,    /// can adjust height with your devices
+  bottomSheetHeight: 250.0,    ///--> can adjust height with your devices
   exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
   cancelButtonText: "No",
   exitButtonText: "Yes",
