@@ -61,6 +61,17 @@ class FlutterSmartExit extends StatefulWidget {
   /// Vertical margin for the SnackBar during back press exit.
   final double? backPressExitBottomExit;
 
+  /// Height of the container that wraps the exit image.
+  final double? imageContainerHeight;
+
+  /// Width of the container that wraps the exit image.
+  final double? imageContainerWidth;
+
+  /// Decoration applied to the container surrounding the exit image
+  /// (e.g., border radius, background color, shadows).
+  final Decoration? imageContainerDecoration;
+
+
   /// The main child widget wrapped by this exit handler.
   final Widget child;
 
@@ -82,6 +93,9 @@ class FlutterSmartExit extends StatefulWidget {
     this.backgroundColor,
     this.bottomSheetHeight,
     this.backPressExitBottomExit,
+    this.imageContainerHeight,
+    this.imageContainerWidth,
+    this.imageContainerDecoration,
     required this.child,
   });
 
@@ -199,9 +213,9 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
+                    height:widget.imageContainerHeight ??  50,
+                    width: widget.imageContainerWidth ?? 50,
+                    decoration: widget.imageContainerDecoration ?? BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(25),
                       border: Border.all(color: Colors.red, width: 2),
@@ -316,9 +330,9 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  height: size.width > 550 ? 70 : 50,
-                  width: size.width > 550 ? 70 : 50,
-                  decoration: BoxDecoration(
+                  height: widget.imageContainerHeight ?? (size.width > 550 ? 70 : 50) ,
+                  width: widget.imageContainerWidth ?? (size.width > 550 ? 70 : 50),
+                  decoration: widget.imageContainerDecoration ?? BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(35),
                     border: Border.all(color: Colors.red, width: 2),
