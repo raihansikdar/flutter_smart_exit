@@ -71,7 +71,6 @@ class FlutterSmartExit extends StatefulWidget {
   /// (e.g., border radius, background color, shadows).
   final Decoration? exitImageContainerDecoration;
 
-
   /// The main child widget wrapped by this exit handler.
   final Widget child;
 
@@ -213,13 +212,15 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    height:widget.exitImageContainerHeight ??  50,
+                    height: widget.exitImageContainerHeight ?? 50,
                     width: widget.exitImageContainerWidth ?? 50,
-                    decoration: widget.exitImageContainerDecoration ?? BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      border: Border.all(color: Colors.red, width: 2),
-                    ),
+                    decoration:
+                        widget.exitImageContainerDecoration ??
+                        BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                          border: Border.all(color: Colors.red, width: 2),
+                        ),
                     child: widget.exitImage ?? const Icon(Icons.error_outline),
                   ),
                   SizedBox(height: size.height * 0.010),
@@ -330,13 +331,19 @@ class _FlutterSmartExitState extends State<FlutterSmartExit> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  height: widget.exitImageContainerHeight ?? (size.width > 550 ? 70 : 50) ,
-                  width: widget.exitImageContainerWidth ?? (size.width > 550 ? 70 : 50),
-                  decoration: widget.exitImageContainerDecoration ?? BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(35),
-                    border: Border.all(color: Colors.red, width: 2),
-                  ),
+                  height:
+                      widget.exitImageContainerHeight ??
+                      (size.width > 550 ? 70 : 50),
+                  width:
+                      widget.exitImageContainerWidth ??
+                      (size.width > 550 ? 70 : 50),
+                  decoration:
+                      widget.exitImageContainerDecoration ??
+                      BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(35),
+                        border: Border.all(color: Colors.red, width: 2),
+                      ),
                   child: widget.exitImage ?? const Icon(Icons.error_outline),
                 ),
                 SizedBox(height: size.width > 550 ? 10 : 15),
