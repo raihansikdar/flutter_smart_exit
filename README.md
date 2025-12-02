@@ -163,10 +163,10 @@ FlutterSmartExit(
   // SnackBar double-back press margin
   backPressExitBottomExit: 20.0,   // Vertical margin for SnackBar
 
-  // Image container customization
-  imageContainerHeight: 50,
-  imageContainerWidth: 50,
-  imageContainerDecoration: BoxDecoration(
+  // Exit Image container customization
+  exitImageContainerHeight: 50,
+  exitImageContainerWidth: 50,
+  exitImageContainerDecoration: BoxDecoration(
     borderRadius: BorderRadius.circular(12),
     color: Colors.grey.shade200,
   ),

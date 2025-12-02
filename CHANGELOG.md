@@ -1,6 +1,13 @@
 # Changelog
 
 ---
+## [1.2.0] - 2025-12-03
+### Added
+- exitImageContainerHeight
+- exitImageContainerWidth
+- exitImageContainerDecoration
+
+
 ## [1.1.0] - 2025-12-02
 ### Fixed
 - BottomSheet Alignment and Radius problem 
