@@ -92,23 +92,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ## 🎨 Customization
 
-| **Property**              | **Description**                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| `exitType`                | Defines how the exit confirmation will appear (dialog, bottom sheet, SnackBar). |
-| `exitMessage`             | The message displayed when asking the user to confirm exiting the app.          |
-| `exitMessageStyle`        | Custom `TextStyle` for the exit message.                                        |
-| `cancelButtonText`        | Text displayed on the cancel button.                                            |
-| `cancelButtonTextStyle`   | Custom text style for the cancel button.                                        |
-| `cancelButtonStyle`       | Custom `ButtonStyle` for the cancel button.                                     |
-| `exitButtonText`          | Text displayed on the exit button.                                              |
-| `exitButtonTextStyle`     | Custom text style for the exit button.                                          |
-| `exitButtonStyle`         | Custom `ButtonStyle` for the exit button.                                       |
-| `backgroundColor`         | Background color for dialog, bottom sheet, or SnackBar.                         |
-| `bottomSheetHeight`       | Optional height for the bottom sheet layout.                                    |
-| `backPressExitBottomExit` | Duration (in seconds) before auto-exit on double back press (for SnackBar).     |
-| `child`                   | The main widget wrapped by the exit handler.                                    |
-| `exitImage`               | Optional image widget displayed in the exit UI (dialog or bottom sheet).        |
-
+| **Property**               | **Description**                                                                               |
+| -------------------------- | --------------------------------------------------------------------------------------------- |
+| `exitType`                 | Determines how the exit confirmation appears (dialog, bottom sheet, or double-back SnackBar). |
+| `exitImage`                | Optional widget displayed inside the exit dialog or bottom sheet.                             |
+| `exitMessage`              | The confirmation message shown when asking the user to exit the app.                          |
+| `exitMessageStyle`         | Custom `TextStyle` applied to the exit confirmation message.                                  |
+| `cancelButtonText`         | Text displayed on the cancel button.                                                          |
+| `cancelButtonTextStyle`    | Custom `TextStyle` for the cancel button text.                                                |
+| `cancelButtonStyle`        | Custom `ButtonStyle` for the cancel button.                                                   |
+| `exitButtonText`           | Text displayed on the exit button.                                                            |
+| `exitButtonTextStyle`      | Custom `TextStyle` for the exit button text.                                                  |
+| `exitButtonStyle`          | Custom `ButtonStyle` for the exit button.                                                     |
+| `backgroundColor`          | Background color for the exit dialog, bottom sheet, or SnackBar.                              |
+| `bottomSheetHeight`        | Optional custom height for the bottom sheet layout.                                           |
+| `backPressExitBottomExit`  | Vertical margin applied to the SnackBar when using the double back press exit behavior.       |
+| `imageContainerHeight`     | Height of the container wrapping the exit image.                                              |
+| `imageContainerWidth`      | Width of the container wrapping the exit image.                                               |
+| `imageContainerDecoration` | Decoration for the image container (e.g., border radius, color, shadows).                     |
+| `child`                    | The main widget wrapped by the smart exit handler.                                            |
 
 
 ## 💡 Example
@@ -116,15 +118,63 @@ class _MyHomePageState extends State<MyHomePage> {
 ### Bottom Sheet Exit
 ```
 FlutterSmartExit(
-  exitType: ExitType.bottomSheetExit,
+  exitType: ExitType.bottomSheetExit,        // Select exit behavior
+
+  // Exit image inside dialog or bottom sheet
+  exitImage: Image.asset(
+    'assets/exit.png',
+    fit: BoxFit.contain,
+  ),
+
+  // Exit message and styles
   exitMessage: "Do you really want to leave?",
-  bottomSheetHeight: 250.0,    ///--> can adjust height with your devices
-  exitMessageStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  exitMessageStyle: TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  ),
+
+  // Cancel button customization
   cancelButtonText: "No",
+  cancelButtonTextStyle: TextStyle(
+    fontSize: 16,
+    color: Colors.red,
+  ),
+  cancelButtonStyle: ElevatedButton.styleFrom(
+    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+  ),
+
+  // Exit button customization
   exitButtonText: "Yes",
+  exitButtonTextStyle: TextStyle(
+    fontSize: 16,
+    color: Colors.white,
+  ),
+  exitButtonStyle: ElevatedButton.styleFrom(
+    backgroundColor: Colors.green,
+    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+  ),
+
+  // Background color for dialog, bottom sheet, or snackbar
   backgroundColor: Colors.white,
+
+  // Bottom sheet customization
+  bottomSheetHeight: 250.0,    // Adjust height based on device
+
+  // SnackBar double-back press margin
+  backPressExitBottomExit: 20.0,   // Vertical margin for SnackBar
+
+  // Image container customization
+  imageContainerHeight: 50,
+  imageContainerWidth: 50,
+  imageContainerDecoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(12),
+    color: Colors.grey.shade200,
+  ),
+
+  // Main child widget
   child: MyHomePage(),
-)
+);
+
 
 ```
 
